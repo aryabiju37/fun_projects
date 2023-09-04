@@ -1,5 +1,4 @@
-
-
+from threading import *
 # 1 Reverse A string
 
 # s = input("enter the string to be reversed: ")
@@ -161,17 +160,26 @@ find_factors(111) # [1,3,37,111 ]
 find_factors(321421) # [1,293,1097,321421 ]
 find_factors(412146) # [1,2,3,6,7,9,14,18,21,42,63,126,3271,6542,9813,19626,22897,29439,45794,58878,68691,137382,206073,412146]
 '''
+# l = Lock()
 # def find_factors(num):
+#     l.acquire()
 #     factors = []
 #     i = 1
 #     while i <= num:
 #         if (num % i) == 0:
 #             factors.append(i)
 #         i += 1
+#     l.release()
 #     return factors
 
-# fact = find_factors(21)
-# print(fact)
+# def display(num):
+#     print(f"The factors of, {num} is {find_factors(num)}")
+
+# t1 = Thread(target=display,args=(412345678,))
+# t1.start()  
+
+
+
 '''
 includes
 Write a function called includes which accepts a collection, a value, and an optional starting index. 
@@ -193,6 +201,47 @@ includes('abcd', 'e') # False
 '''
 new challenge
 '''
+'''
+Factorial of a number
+'''
+# l = RLock()
+# result = 1
+# def factorial(num):
+#     l.acquire()
+#     if num == 0:
+#         result = 1
+#     else:
+#         result = num*factorial(num-1)
+#     l.release()
+#     return result
+
+# def display(num,num1,num2):
+#     print(f"the factorial of {num} is {factorial(num)} checking..{num1},{num2}")
+# t1 = Thread(target = display,args=(5,6,7))
+# t1.start()
+
+# class Test:
+#     a = 10
+#     def __init__(self):
+#         self.b = 20
 
 
-    
+# t = Test()
+# print(t.__dict__)
+# t.b = 777
+# t.a = 888
+# print(t.__dict__)
+
+
+# arr = [10, 20, 30]
+ 
+ 
+# def fun():
+#     global arr
+#     arr = [20, 30, 40]
+ 
+ 
+# print("'arr' list before executing fun():", arr)
+# fun()
+# print("'arr' list after executing fun():", arr)
+
